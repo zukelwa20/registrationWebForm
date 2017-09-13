@@ -1,0 +1,30 @@
+{
+  "name": "greetingWebForm",
+  "version": "1.0.0",
+  "description": "greeting application",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.4",
+    "express-flash": "git://github.com/RGBboy/express-flash.git",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.5",
+    "mongoose": "^4.11.9"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zukelwa20/greetingWebForm.git"
+  },
+  "author": "makhosandile",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zukelwa20/greetingWebForm/issues"
+  },
+  "homepage": "https://github.com/zukelwa20/greetingWebForm#readme",
+  "keywords": []
+}

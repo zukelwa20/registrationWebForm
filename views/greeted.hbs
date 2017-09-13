@@ -1,0 +1,17 @@
+<head>
+    <link rel="stylesheet" href="/css/greeted.css">
+</head>
+
+<h3>Greeted Names</h3>
+
+<ul>
+    {{#each greets}}
+        <li> <a href="/greeted/{{name}}">{{name}}</a>
+        </li>
+
+    {{/each}}
+</ul>
+
+
+
+<a href="/greet">Back to main page</a>
