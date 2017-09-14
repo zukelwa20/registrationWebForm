@@ -1,30 +1,28 @@
 {
-  "name": "greetingWebForm",
+  "name": "registrationwebform",
   "version": "1.0.0",
-  "description": "greeting application",
+  "description": "registration web form",
   "main": "index.js",
-  "dependencies": {
-    "body-parser": "^1.17.2",
-    "express": "^4.15.4",
-    "express-flash": "git://github.com/RGBboy/express-flash.git",
-    "express-handlebars": "^3.0.0",
-    "express-session": "^1.15.5",
-    "mongoose": "^4.11.9"
-  },
-  "devDependencies": {},
   "scripts": {
-    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "author": "makho",
+  "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zukelwa20/greetingWebForm.git"
+    "url": "git+https://github.com/zukelwa20/registrationWebForm.git"
   },
-  "author": "makhosandile",
-  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zukelwa20/greetingWebForm/issues"
+    "url": "https://github.com/zukelwa20/registrationWebForm/issues"
   },
-  "homepage": "https://github.com/zukelwa20/greetingWebForm#readme",
-  "keywords": []
+  "homepage": "https://github.com/zukelwa20/registrationWebForm#readme",
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "express": "^4.15.4",
+    "express-flash": "0.0.2",
+    "express-handlebars": "^3.0.0",
+    "express-session": "^1.15.5",
+    "mongodb": "^2.2.31",
+    "mongoose": "^4.11.11"
+  }
 }

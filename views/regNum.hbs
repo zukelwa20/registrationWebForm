@@ -1,0 +1,26 @@
+<head>
+    <link rel="stylesheet" href="/css/reg.css">
+</head>
+<form action="/reg" method="post">
+    <!-- <input type="text" name="name" placeholder="Type any name here" value="" required=""></input> -->
+    <h5>Registration numbers</h5>
+    <input type="text" id="inpBox" placeholder="Type any name here" name="name" value=""></input><br><br>
+
+    <div class="optBtn">
+        <input type="radio" name="Registration" value="CA" id="capetown">Cape Town <br>
+        <input type="radio" name="Registration" value="CY" id="belville"> Belville <br>
+        <input type="radio" name="Registration" value="CJ" id="paarl">Paarl
+        <input type="radio" name="Registration" value="All" id="all">All<br><br>
+        <button type="submit" name="button">Add</button>
+    </div>
+    </a>
+
+      <ul>
+
+          {{#each regName}}
+              <li> <a href="/">{{name}}</a>
+              </li>
+
+    {{/each}}
+    </ul>
+</form>

@@ -1,17 +1,22 @@
 const mongoose = require('mongoose');
 module.exports = function(mongoUrl) {
-    mongoose.connect(mongoUrl, function() {
-
+    mongoose.connect(mongoUrl, function(err, results) {
+    if(err){
+      console.log(err);
+    }
+    else{
+      console.log("connected to database")
+    }
     });
-mongoose.connect(mongoUrl, {useMongoClient: true})
 
-    var greetedNames = mongoose.model('greetedNames', {
-        name: String,
-        counter: Number
+
+    var registrationNames = mongoose.model('registrationNames', {
+        name: String
+
     });
 
 
     return {
-        greetedNames
+      registrationNames
     }
 }

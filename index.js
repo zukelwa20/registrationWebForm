@@ -6,13 +6,11 @@ const flash = require('express-flash');
 
 
 const model = require("./models");
-const models = model(process.env.MONGO_DB_URL || "mongodb://localhost/greeted");
+const models = model("mongodb://localhost/regNum");
+// console.log(models);
+const regRoutes = require('./registration');
+const regRoute = regRoutes(models);
 
-const nameRoutes = require('./greet');
-const nameRoute = nameRoutes(models);
-
-// const resetFun = require('./greet');
-// const resetName = resetFun(models);
 
 var app = express();
 
@@ -43,19 +41,15 @@ app.engine('hbs', exphbs({
 app.set('view engine', 'hbs');
 // creating a route
 app.get('/', function(req, res) {
-    res.render("greeting");
+    res.render("regNum");
 });
 
- app.get('/greeted/:name', nameRoute.greetedTimes)
- // app.post('timesGreeted', nameRoute.greetedTimes)
-app.get('/greeted', nameRoute.allGreeted)
-app.get('/greet', nameRoute.showForm)
-app.get('/reset', nameRoute.resetFun)
-app.post('/greet', nameRoute.greetNames)
-// app.get('/greet/greeted/name', nameRoute.counting)
+ app.get('/', regRoute.addFun)
+ app.post('/reg', regRoute.allreg)
+
 
 //start the server
-var server = app.listen(process.env.PORT || 3000, function() {
+var server = app.listen(process.env.PORT || 3001, function() {
 
     var host = server.address().address;
     var port = server.address().port;
