@@ -44,8 +44,10 @@ app.get('/', function(req, res) {
     res.render("regNum");
 });
 
- app.get('/', regRoute.addFun)
- app.post('/reg', regRoute.allreg)
+ //app.get('/', regRoute.addFun)
+ app.post('/', function(req,res) {
+ regRoute.addFun(req, res);
+});
 
 
 //start the server
