@@ -4,23 +4,23 @@
 <form action="/" method="post">
     <!-- <input type="text" name="name" placeholder="Type any name here" value="" required=""></input> -->
     <h5>Registration numbers</h5>
-    <input type="text" id="inpBox" placeholder="Type any name here" name="name" value=""></input><br><br>
+    <input type="text" id="inpBox" placeholder="Type any name here" name="name" value="" required=""></input><br><br>
 
     <div class="optBtn">
         <input type="radio" name="Registration" value="CA" id="capetown">Cape Town <br>
         <input type="radio" name="Registration" value="CY" id="belville"> Belville <br>
         <input type="radio" name="Registration" value="CJ" id="paarl">Paarl
         <input type="radio" name="Registration" value="All" id="all">All<br><br>
-        <button type="submit" name="">Add</button>
+        <button type="submit" name="" required="">Add</button>
     </div>
-    </a>
 
-      <ul>
 
-          {{#each name}}
-              <li> <a href="/">{{this.name}}</a>
-              </li>
+    <ul>
 
-    {{/each}}
+        {{#each reg}}
+            <li class="regNUMBERS">{{this.name}}
+            </li>
+
+        {{/each}}
     </ul>
 </form>

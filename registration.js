@@ -2,28 +2,49 @@ module.exports = function(models) {
     const showForm = function(req, res, next) {
         res.redirect('/')
     }
+    const addFun = function(req, res) {
+      var regNumber = req.body.name
 
-    function addFun(req, res) {
-        var regNumber = req.body.name;
         console.log(regNumber);
-        // if(regNumber)
-        models.registrationNames.find({},
-            function(err, regResults) {
-              console.log(regResults);
-              res.render("regNum", {name: regResults}),
-              models.registrationNames.findOne({name:regNumber}, function(err, results){
-                if(err){
-                  console.log(err)
+
+        if ( !regNumber) {
+             res.render('regNum', {reg:regNumber});
+        } else {
+            models.registrationNames.findOne({
+                name : req.body.name
+            }, function(err, regResults) {
+
+                if (err) {
+                    console.log(err);
                 }
-                else if(results){
-                   results.save("regNumber")
-                   }
-                   else {
-                     models.registrationNames.create({name:regNumber})
-                   }
-                 });
-              })
-    }
+
+                if (!regResults) {
+                    models.registrationNames.create({
+                        name : req.body.name
+                    }, function(err, results) {
+                        if (err) {
+                            console.log(err)
+                        }
+
+                        models.registrationNames.find({}, function(err, results) {
+                            if (err) {
+                                console.log(err);
+                            }
+                            else {
+                          res.render('regNum',  {reg: results});
+                           }
+                        });
+
+                    })
+                }
+
+                if (regResults) {
+                    // req.flash('error', 'registration already exist!');
+                    res.render('regNum');
+                }
+            });
+        }
+    };
 
 
 
@@ -33,40 +54,3 @@ module.exports = function(models) {
         // allreg
     };
 }
-
-
-//   var allreg = function(req, res) {
-// var regNumber = req.body.name;
-// console.log(regNumber);
-// models.registrationNames.find({}, function(err, results) {
-//     if (err) {
-//         console.log(err);
-//     } else {
-//         res.render('/reg', {
-//             name: results
-//         })
-//     }
-//
-// });
-
-
-
-
-//     models.registrationNames.create({name: regNumber}, function(err, regResults){
-//       if(err){
-//         console.log(err)
-//       }
-//       else if(regResults){
-//         regResults.save()
-//       }
-//     })
-// }
-
-// else if(results){
-//   res.render('regNum', {name:results})
-// }
-// else {
-//   models.registrationNames.create({name})
-// }
-// })
-// }
