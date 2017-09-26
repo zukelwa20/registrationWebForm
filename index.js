@@ -6,7 +6,7 @@ const flash = require('express-flash');
 
 
 const model = require("./models");
-const models = model("mongodb://localhost/regNum");
+const models = model(process.env.MONGO_DB_URL ||"mongodb://localhost:27017/regNum");
 // console.log(models);
 const regRoutes = require('./registration');
 const regRoute = regRoutes(models);
@@ -47,7 +47,7 @@ app.get('/', function(req, res) {
  app.post('/', function(req,res) {
  regRoute.addFun(req, res);
 });
-app.post('/:reg_Numbers', regRoute.filterData);
+app.post('/reg_Numbers', regRoute.filterData);
 
 
 //start the server
