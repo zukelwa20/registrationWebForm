@@ -47,10 +47,24 @@ module.exports = function(models) {
     };
 
 
+    var  filterData = function(req, res){
+    var name = req.body.name
+    console.log(name);
+    models.registrationNames.find({name: {$regex:name}}, function(err, results){
+      if(err){
+        console.log(err)
+      }
+      else{
+        res.render("regNum", {reg: results});
+      }
+    })
+  }
+
+
 
     return {
         showForm,
-        addFun
-        // allreg
+        addFun,
+        filterData
     };
 }

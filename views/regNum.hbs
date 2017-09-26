@@ -5,22 +5,26 @@
     <!-- <input type="text" name="name" placeholder="Type any name here" value="" required=""></input> -->
     <h5>Registration numbers</h5>
     <input type="text" id="inpBox" placeholder="Type any name here" name="name" value="" required=""></input><br><br>
+    <button type="submit" name="" required="">Add</button><br><br>
+  </div>
 
-    <div class="optBtn">
-        <input type="radio" name="Registration" value="CA" id="capetown">Cape Town <br>
-        <input type="radio" name="Registration" value="CY" id="belville"> Belville <br>
-        <input type="radio" name="Registration" value="CJ" id="paarl">Paarl
-        <input type="radio" name="Registration" value="All" id="all">All<br><br>
-        <button type="submit" name="" required="">Add</button>
-    </div>
-
-
-    <ul>
-
-        {{#each reg}}
-            <li class="regNUMBERS">{{this.name}}
-            </li>
-
-        {{/each}}
-    </ul>
 </form>
+
+<form action="/reg_Numbers" method="post">
+<div class="optBtn">
+  <input type="radio" name="name" value="CA" id="capetown">Cape Town
+  <input type="radio" name="name" value="CY" id="belville"> Belville
+  <input type="radio" name="name" value="CK" id="malmesbury">malmesbury
+  <input type="radio" name="name" value="" id="all">All<br><br>
+  <button type="submit" name="" >Show</button>
+</form>
+<div class="regNUMBERS">
+
+<center><ul>
+  {{#each reg}}
+  <li>{{this.name}}
+  </li>
+  {{/each}}
+</ul>
+</center>
+</div>

@@ -17,6 +17,7 @@
 
 }
 li {
+  text-align: center;
   list-style-type: none;
   width: 200px;
   height: 100;
@@ -35,6 +36,6 @@ body {
   text-align: center;
   background-color: grey;
 }
- .regNUMBERS {
+/*.regNUMBERS {
    text-align: center;
- }
+ }*/
